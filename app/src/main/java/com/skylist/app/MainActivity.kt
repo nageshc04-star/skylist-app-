@@ -26,17 +26,28 @@ val SkyBg = Color(0xFFE1F5FE)
 fun SkyListApp() {
     MaterialTheme(colorScheme = lightColorScheme(primary = SkyBlue, background = SkyBg)) {
         Scaffold(
-            topBar = { SmallTopAppBar(title = { Text("SkyList - Classifieds") }, colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = SkyBlue, titleContentColor = Color.White)) },
+            topBar = {
+                SmallTopAppBar(
+                    title = { Text("SkyList - Classifieds") },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                        containerColor = SkyBlue,
+                        titleContentColor = Color.White
+                    )
+                )
+            },
             containerColor = SkyBg
         ) { pad ->
             val categories = listOf(
-                "Properties" to listOf("Flats","Houses","PG","Land","Commercial"),
-                "Items > Electronics" to listOf("Mobiles","Laptops","Cameras","Gaming"),
-                "Items > General" to listOf("Books","Fashion","Sports"),
-                "Items > Furniture" to listOf("Sofa","Beds","Tables","Decor"),
-                "Vehicles" to listOf("Cars","Bikes","Scooters","Commercial")
+                "Properties" to listOf("Flats", "Houses", "PG", "Land", "Commercial"),
+                "Electronics" to listOf("Mobiles", "Laptops", "Cameras", "Gaming"),
+                "General" to listOf("Books", "Fashion", "Sports"),
+                "Furniture" to listOf("Sofa", "Beds", "Tables", "Decor"),
+                "Vehicles" to listOf("Cars", "Bikes", "Scooters", "Commercial")
             )
-            LazyColumn(Modifier.padding(pad).padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            LazyColumn(
+                modifier = Modifier.padding(pad).padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
                 items(categories) { (title, subs) ->
                     Card(colors = CardDefaults.cardColors(containerColor = Color.White)) {
                         Column(Modifier.padding(16.dp)) {
@@ -47,7 +58,11 @@ fun SkyListApp() {
                     }
                 }
                 item {
-                    Button(onClick = {}, modifier = Modifier.fillMaxWidth(), colors = ButtonDefaults.buttonColors(containerColor = SkyBlue)) {
+                    Button(
+                        onClick = {},
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = SkyBlue)
+                    ) {
                         Text("Post Ad (8 images max) - Coming Soon")
                     }
                 }
